@@ -12,14 +12,24 @@ public class CommonElements
 
     public Comparable[] findCommonElements(Comparable[][] collections)
     {
+        //Placeholder to declare return value
         Comparable[] commonElements = {};
 
-        //Sort
+        //Tempcomparable to store sorted arrays
+        Comparable[][] tempComparable = {};
 
-        //Does array have at least 10 entries?
-            //Yes, use Quick Sort
-
-            //No, use insertion sort
+        //Iterate through array of arrays to sort
+        for (int i = 0; i < collections.length; i++)
+        {
+            if (collections[i].length >= 10)
+            {
+                tempComparable[i] = quickSortRemoveDuplicates(collections[i]);
+            }
+            else
+            {
+                tempComparable[i] = insertionSortRemoveDuplicates(collections[i]);
+            }
+        }
 
         //Compare
 
@@ -28,12 +38,12 @@ public class CommonElements
 
     }
 
-    public Comparable[][] insertionSortRemoveDuplicates(Comparable[][] collections)
+    public Comparable[] insertionSortRemoveDuplicates(Comparable[] collections)
     {
         return collections;
     }
 
-    public Comparable[][] quickSortRemoveDuplicates(Comparable[][] collections)
+    public Comparable[] quickSortRemoveDuplicates(Comparable[] collections)
     {
         return collections;
     }
