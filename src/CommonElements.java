@@ -63,11 +63,15 @@ public class CommonElements
                     j++;
                 case 1:
                     k++;
+            }
+            
+            if (i == tempCollections[i].length)
+            {
+                queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
+            }
         }
 
-        Comparable[] commonElements = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
-
-        return commonElements;
+        return queryCollection;
 
     }
 
