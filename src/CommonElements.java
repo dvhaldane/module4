@@ -45,29 +45,39 @@ public class CommonElements
             
         }
 
+
         //Compare
+        int currentArrayIndex = 1;
         Comparable[] queryCollection = tempCollections[0];
+        Comparable[] currentCompare = tempCollections[currentArrayIndex];
         int j = 0;
         int k = 0;
-        
-        for (int i = 1; i < tempCollections[i].length; i++)
+
+        while (currentArrayIndex < tempCollections.length && k != currentCompare.length)
         {
             comparisons++;
-            switch(queryCollection[j].compareTo(tempCollections[k]))
+            int compareValue = queryCollection[j].compareTo(tempCollections[k]);
+            if (compareValue == 0)
             {
-                case 0:
-                    commonElementsList.add(queryCollection[j]);
-                    j++;
-                    k++;
-                case -1:
-                    j++;
-                case 1:
-                    k++;
+                commonElementsList.add(queryCollection[j]);
+                j++;
+                k++;
+            }
+            else if (compareValue == -1 && j != queryCollection.length)
+            {
+                j++;
+            }
+            else if (k != tempCollections.length)
+            {
+                k++;
             }
             
-            if (i == tempCollections[i].length)
+            if (j == queryCollection.length && compareValue == -1 || k == tempCollections[i].length - 1 && j == queryCollection.length - 1)
             {
                 queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
+                j = 0;
+                k = 0;
+                currentArrayIndex++;
             }
         }
 
@@ -77,19 +87,19 @@ public class CommonElements
 
     public Comparable[] insertionSort(Comparable[] collections)
     {
-        for (int i = 1; i < objArray.length; i++)
+        for (int i = 1; i < collections.length; i++)
         {
-            Comparable firstUnsorted = objArray[i];
+            Comparable firstUnsorted = collections[i];
             int index = i - 1;
             
-            while (index >= 0 && firstUnsorted.compareTo(objArray[index]) < 0)
+            while (index >= 0 && firstUnsorted.compareTo(collections[index]) < 0)
             {
-                objArray[index + 1] = objArray[index];
+                collections[index + 1] = collections[index];
                 index--;
             }
-            objArray[index + 1] = firstUnsorted;
+            collections[index + 1] = firstUnsorted;
         }
-        return objArray;
+        return collections;
     }
 
     public Comparable[] quickSort(Comparable[] collections)
