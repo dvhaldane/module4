@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by HaldaneDavidV on 9/24/2017.
@@ -53,31 +54,38 @@ public class CommonElements
         int j = 0;
         int k = 0;
 
-        while (currentArrayIndex < tempCollections.length && k != currentCompare.length)
+        while (currentArrayIndex < tempCollections.length)
         {
             comparisons++;
-            int compareValue = queryCollection[j].compareTo(tempCollections[k]);
+            int compareValue = queryCollection[j].compareTo(currentCompare[k]);
             if (compareValue == 0)
             {
+                //System.out.println("Added " + queryCollection[j]);
                 commonElementsList.add(queryCollection[j]);
-                j++;
-                k++;
+                j++; //Increment query collection
+                k++; //Increment current comparison collection
             }
-            else if (compareValue == -1 && j != queryCollection.length)
+            else if (compareValue == -1 && j < queryCollection.length - 1)
             {
                 j++;
             }
-            else if (k != tempCollections.length)
+            else if (k < currentCompare.length - 1)
             {
                 k++;
             }
             
-            if (j == queryCollection.length && compareValue == -1 || k == tempCollections[i].length - 1 && j == queryCollection.length - 1)
+            if (j == currentCompare.length && compareValue != -1 || k == queryCollection.length && compareValue != 1 || k == currentCompare.length && j == queryCollection.length)
             {
                 queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
+                commonElementsList.clear();
                 j = 0;
                 k = 0;
                 currentArrayIndex++;
+                if (currentArrayIndex < tempCollections.length)
+                {
+                    currentCompare = tempCollections[currentArrayIndex];
+                    //System.out.println("currentCompare is " + Arrays.toString(currentCompare));
+                }
             }
         }
 
