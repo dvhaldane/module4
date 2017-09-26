@@ -27,12 +27,13 @@ public class CommonElements
 
         for (int i = 0; i < collections.length; i++)
         {
-            if (collections[i].length >= 10)
+            if (collections[i].length >= 20)
             {
-                tempCollections[i] = quickSort(collections[i]);
+                tempCollections[i] = mergeSort(collections[i]);
             }
             else
             {
+                System.out.println("Sorting " + Arrays.toString(collections[i]));
                 tempCollections[i] = insertionSort(collections[i]);
             }
             
@@ -62,10 +63,16 @@ public class CommonElements
             {
                 //System.out.println("Added " + queryCollection[j]);
                 commonElementsList.add(queryCollection[j]);
-                j++; //Increment query collection
-                k++; //Increment current comparison collection
+                if (j < queryCollection.length - 1)
+                {
+                    j++; //Increment query collection
+                }
+                if (k < currentCompare.length - 1)
+                {
+                    k++; //Increment current comparison collection
+                }
             }
-            else if (compareValue == -1 && j < queryCollection.length - 1)
+            else if (compareValue < 0 && j < queryCollection.length - 1)
             {
                 j++;
             }
@@ -74,8 +81,9 @@ public class CommonElements
                 k++;
             }
             
-            if (j == currentCompare.length && compareValue != -1 || k == queryCollection.length && compareValue != 1 || k == currentCompare.length && j == queryCollection.length)
+            if (j == currentCompare.length && compareValue >= 0 || k == queryCollection.length && compareValue > 0 || k == currentCompare.length - 1 && j == queryCollection.length - 1)
             {
+                System.out.println(commonElementsList.toString());
                 queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
                 commonElementsList.clear();
                 j = 0;
@@ -84,7 +92,6 @@ public class CommonElements
                 if (currentArrayIndex < tempCollections.length)
                 {
                     currentCompare = tempCollections[currentArrayIndex];
-                    //System.out.println("currentCompare is " + Arrays.toString(currentCompare));
                 }
             }
         }
@@ -110,7 +117,7 @@ public class CommonElements
         return collections;
     }
 
-    public Comparable[] quickSort(Comparable[] collections)
+    public Comparable[] mergeSort(Comparable[] collections)
     {
         return collections;
     }
