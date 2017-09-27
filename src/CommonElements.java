@@ -15,10 +15,8 @@ public class CommonElements
 
     public Comparable[] findCommonElements(Comparable[][] collections)
     {
-        //Placeholder to declare return value
         ArrayList<Comparable> commonElementsList = new ArrayList<>();
 
-        //Tempcomparable to store sorted arrays
         Comparable[][] tempCollections = collections;
 
         ArrayList<Integer> collectionLengths = new ArrayList<Integer>();
@@ -38,7 +36,6 @@ public class CommonElements
             }
             
         }
-
 
         //Compare
         int currentArrayIndex = 1;
