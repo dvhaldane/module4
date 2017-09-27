@@ -27,14 +27,7 @@ public class CommonElements
 
         for (int i = 0; i < collections.length; i++)
         {
-            if (collections[i].length >= 20)
-            {
-                tempCollections[i] = mergeSort(collections[i]);
-            }
-            else
-            {
-                tempCollections[i] = insertionSort(collections[i]);
-            }
+            tempCollections[i] = mergeSort(collections[i]);
             
             //Find largest array for query array and place at 0 position
             if (tempCollections[i].length < tempCollections[0].length)
@@ -65,8 +58,15 @@ public class CommonElements
                     commonElementsList.add(queryCollection[j]);
                 }
 
-                j++;
-                k++;
+                if (k == currentCompare.length - 1)
+                {
+                    j++;
+                }
+                else
+                {
+                    j++;
+                    k++;
+                }
 
             }
             else if (compareValue < 0 && j < queryCollection.length - 1) //If query is behind the current compare and not at end or at end
@@ -115,6 +115,7 @@ public class CommonElements
 
     public Comparable[] mergeSort(Comparable[] collections)
     {
+        Arrays.sort(collections);
         return collections;
     }
 
