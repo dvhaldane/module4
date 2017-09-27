@@ -33,12 +33,11 @@ public class CommonElements
             }
             else
             {
-                System.out.println("Sorting " + Arrays.toString(collections[i]));
                 tempCollections[i] = insertionSort(collections[i]);
             }
             
             //Find largest array for query array and place at 0 position
-            if (tempCollections[i].length > tempCollections[0].length)
+            if (tempCollections[i].length < tempCollections[0].length)
             {
                 temp = tempCollections[0];
                 tempCollections[0] = tempCollections[i];
@@ -61,29 +60,26 @@ public class CommonElements
             int compareValue = queryCollection[j].compareTo(currentCompare[k]);
             if (compareValue == 0)
             {
-                //System.out.println("Added " + queryCollection[j]);
-                commonElementsList.add(queryCollection[j]);
-                if (j < queryCollection.length - 1)
+                if (j < queryCollection.length && k < currentCompare.length)
                 {
-                    j++; //Increment query collection
+                    commonElementsList.add(queryCollection[j]);
                 }
-                if (k < currentCompare.length - 1)
-                {
-                    k++; //Increment current comparison collection
-                }
+
+                j++;
+                k++;
+
             }
-            else if (compareValue < 0 && j < queryCollection.length - 1)
+            else if (compareValue < 0 && j < queryCollection.length - 1) //If query is behind the current compare and not at end or at end
             {
                 j++;
             }
-            else if (k < currentCompare.length - 1)
+            else if (compareValue > 0 && k < currentCompare.length - 1) //If query is ahead of comparison and comparison is not at end or at end
             {
                 k++;
             }
-            
-            if (j == currentCompare.length && compareValue >= 0 || k == queryCollection.length && compareValue > 0 || k == currentCompare.length - 1 && j == queryCollection.length - 1)
+                //Query collection index
+            if (j == queryCollection.length || j == queryCollection.length - 1 && compareValue < 0 || k == currentCompare.length && j == queryCollection.length)
             {
-                System.out.println(commonElementsList.toString());
                 queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
                 commonElementsList.clear();
                 j = 0;

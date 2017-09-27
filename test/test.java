@@ -13,7 +13,7 @@ public class test extends CommonElements
         Comparable[] query_Collection = {1,2,3,4,5,5,5};
         Comparable[] current_Collection = {1,2,3,3,4,5,5,5};
         Comparable[][] arrays = {query_Collection, current_Collection};
-        Arrays.toString(findCommonElements(arrays));
+        System.out.println(Arrays.toString(findCommonElements(arrays)));
 
     }
 
@@ -46,6 +46,16 @@ public class test extends CommonElements
         Comparable[] coll_2 = {"banana", "apple", "pear", "banana", "pomegranate", "pineapple", "cherry", "jujube", "cherry", "orange"};
         Comparable[] coll_3 = {"banana", "apple", "pear", "banana", "pomegranate", "pineapple", "cherry", "jujube", "cherry", "orange"};
         Comparable[][] arrays = {coll_1, coll_2, coll_3};
+        System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Comparisons " + getComparisons());
+    }
+
+    @Test
+    public void test5()
+    {
+        Comparable[] query_Collection = {1,2,2,4,5};
+        Comparable[] current_Collection1 = {1,2};
+        Comparable[][] arrays = {query_Collection, current_Collection1};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
         System.out.println("Comparisons " + getComparisons());
     }
