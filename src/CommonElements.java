@@ -77,7 +77,6 @@ public class CommonElements
             {
                 k++;
             }
-                //Query collection index
             if (j == queryCollection.length || j == queryCollection.length - 1 && compareValue < 0 || k == currentCompare.length && j == queryCollection.length)
             {
                 queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
