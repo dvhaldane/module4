@@ -15,6 +15,7 @@ public class test extends CommonElements
         Comparable[] current_Collection = {1,2,3,3,4,5,5,5};
         Comparable[][] arrays = {query_Collection, current_Collection};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
 
     }
@@ -27,6 +28,7 @@ public class test extends CommonElements
         Comparable[] current_Collection2 = {1,2};
         Comparable[][] arrays = {query_Collection, current_Collection1, current_Collection2};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
     }
 
@@ -38,6 +40,7 @@ public class test extends CommonElements
         Comparable[] coll_3 = {"plum", "pomegranate", "lime", "banana", "jujube", "blueberry", "apple", "cherry", "grape", "banana"};
         Comparable[][] arrays = {coll_1, coll_2, coll_3};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
     }
 
@@ -49,6 +52,7 @@ public class test extends CommonElements
         Comparable[] coll_3 = {"banana", "apple", "pear", "banana", "pomegranate", "pineapple", "cherry", "jujube", "cherry", "orange"};
         Comparable[][] arrays = {coll_1, coll_2, coll_3};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
     }
 
@@ -59,6 +63,7 @@ public class test extends CommonElements
         Comparable[] current_Collection1 = {1,2};
         Comparable[][] arrays = {query_Collection, current_Collection1};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
     }
 
@@ -86,6 +91,7 @@ public class test extends CommonElements
 
         Comparable[][] arrays = {intlist1, intlist2, intlist3, intlist4, intlist5, intlist6};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
 
     }
@@ -99,6 +105,7 @@ public class test extends CommonElements
         Comparable[] current_Collection3 = {1,2,3,4,5};
         Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
     }
 
@@ -112,6 +119,7 @@ public class test extends CommonElements
         Comparable[] current_Collection4 = {0,1,2,3,4,5,6,7,8,9};
         Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3, current_Collection4};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons " + getComparisons());
     }
 }

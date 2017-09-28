@@ -8,6 +8,7 @@ public class CommonElements
 {
     int comparisons;
     int arrayLength;
+    int totalMembers;
     boolean debug = false;
 
     CommonElements()
@@ -28,7 +29,10 @@ public class CommonElements
         for (int i = 0; i < collections.length; i++)
         {
             tempCollections[i] = mergeSort(collections[i]);
-            
+
+            //Add up total members for debug
+            totalMembers+=tempCollections[i].length;
+
             //Find largest array for query array and place at 0 position
             if (tempCollections[i].length < tempCollections[0].length)
             {
@@ -36,7 +40,9 @@ public class CommonElements
                 tempCollections[0] = tempCollections[i];
                 tempCollections[i] = temp;
             }
-            
+
+
+
         }
 
         //Compare

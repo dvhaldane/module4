@@ -10,6 +10,7 @@ public class test2 extends CommonElements
     {
         Comparable[][] testArray = {{"banana", "apple", "pear", "banana", "pomegranate", "pineapple", "cherry", "jujube", "cherry", "orange"}, {"quince", "raspberry", "banana", "lemon", "apple", "banana", "cherry", "blueberry", "jujube", "mango"}, {"plum", "pomegranate", "lime", "banana", "jujube", "blueberry", "apple", "cherry", "grape", "banana"}};
         System.out.println("Result: " + Arrays.toString(findCommonElements(testArray)));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons: " + getComparisons());
         System.out.println("Matches " + arrayLength);
     }
@@ -44,6 +45,7 @@ public class test2 extends CommonElements
         Comparable[][] testArray2 = {intList1, intList2, intList3, intList4, intList5};
 
         Arrays.toString(findCommonElements(testArray2));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons: " + getComparisons());
         System.out.println("Matches " + arrayLength);
 
@@ -73,6 +75,7 @@ public class test2 extends CommonElements
 
         Comparable[][] testArray3 = {intList1, intList2, intList3, intList4, intList6};
         Arrays.toString(findCommonElements(testArray3));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons: " + getComparisons());
         System.out.println("Matches " + arrayLength);
     }
@@ -108,8 +111,9 @@ public class test2 extends CommonElements
             intList10[i] = random.nextInt(100000);
         }
 
-        Comparable[][] testArray3 = {intList1, intList2, intList3, intList4, intList6, intList7, intList8, intList9, intList10};
+        Comparable[][] testArray3 = {intList1, intList2, intList3, intList4, intList5, intList6, intList7, intList8, intList9, intList10};
         Arrays.toString(findCommonElements(testArray3));
+        System.out.println("Total Members " + totalMembers);
         System.out.println("Comparisons: " + getComparisons());
         System.out.println("Matches " + arrayLength);
     }
