@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class CommonElements
 {
     int comparisons;
+    int arrayLength;
     boolean debug = false;
 
     CommonElements()
@@ -97,6 +98,7 @@ public class CommonElements
             }
         }
 
+        arrayLength = queryCollection.length;
         return queryCollection;
 
     }

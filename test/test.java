@@ -15,6 +15,7 @@ public class test extends CommonElements
         Comparable[] current_Collection = {1,2,3,3,4,5,5,5};
         Comparable[][] arrays = {query_Collection, current_Collection};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Comparisons " + getComparisons());
 
     }
 
@@ -98,5 +99,19 @@ public class test extends CommonElements
         Comparable[] current_Collection3 = {1,2,3,4,5};
         Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Comparisons " + getComparisons());
+    }
+
+    @Test
+    public void test8()
+    {
+        Comparable[] query_Collection = {0,1,2,3,4,5,6,7,8,9};
+        Comparable[] current_Collection = {0,1,2,3,4,5,6,7,8,9};
+        Comparable[] current_Collection2 = {0,1,2,3,4,5,6,7,8,9};
+        Comparable[] current_Collection3 = {0,1,2,3,4,5,6,7,8,9};
+        Comparable[] current_Collection4 = {0,1,2,3,4,5,6,7,8,9};
+        Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3, current_Collection4};
+        System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Comparisons " + getComparisons());
     }
 }
