@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class CommonElements
 {
     int comparisons;
+    boolean debug = false;
 
     CommonElements()
     {
@@ -47,7 +48,15 @@ public class CommonElements
         while (currentArrayIndex < tempCollections.length)
         {
             comparisons++;
+
             int compareValue = queryCollection[j].compareTo(currentCompare[k]);
+            if (debug)
+            {
+                System.out.println("j " + j + " k " + k);
+                System.out.println("QueryColl Len " + queryCollection.length + "CurrentCompare Len " + currentCompare.length);
+                System.out.println("Compare Val = " + compareValue);
+                System.out.println("Query Val = " + queryCollection[j] + "Compare Val = " + currentCompare[k]);
+            }
             if (compareValue == 0)
             {
                 if (j < queryCollection.length && k < currentCompare.length)
@@ -74,7 +83,7 @@ public class CommonElements
             {
                 k++;
             }
-            if (j == queryCollection.length || j == queryCollection.length - 1 && compareValue < 0 || k == currentCompare.length && j == queryCollection.length)
+            if (j == queryCollection.length || j == queryCollection.length - 1 && compareValue < 0 || k == currentCompare.length - 1 && compareValue > 0 || k == currentCompare.length && j == queryCollection.length)
             {
                 queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
                 commonElementsList.clear();
