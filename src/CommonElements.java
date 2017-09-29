@@ -183,7 +183,6 @@ public class CommonElements
             }
         }
 
-        arrayLength = queryCollection.length;
         return processArrayListDuplicates(queryCollection);
 
     }
@@ -214,8 +213,9 @@ public class CommonElements
             }
             count++;
         }
-
-        return returnList.toArray(new Comparable[returnList.size()]);
+        Comparable[] returnArray = returnList.toArray(new Comparable[returnList.size()]);
+        arrayLength = returnArray.length;
+        return returnArray;
     }
 
     public Comparable[] insertionSort(Comparable[] collections)
