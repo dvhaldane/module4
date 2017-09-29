@@ -134,7 +134,19 @@ public class CommonElements
                 if (j < queryCollection.length - 1 && k < currentCompare.length - 1)
                 {
                     commonElementsList.add(queryCollection[j]);
-                    commonElementsList.add(Math.abs((int)queryCollection[j + 1] - (int)queryCollection[k + 1]));
+                    if ((int)queryCollection[j + 1] > (int)currentCompare[k + 1])
+                    {
+                        commonElementsList.add((int)queryCollection[j + 1] - (int)currentCompare[k + 1]);
+                    }
+                    else if ((int)currentCompare[k + 1] > (int)queryCollection[j + 1])
+                    {
+                        commonElementsList.add((int)currentCompare[k + 1] - (int)queryCollection[j + 1]);
+                    }
+                    else
+                    {
+                        commonElementsList.add((int)queryCollection[j + 1]);
+                    }
+
                 }
 
                 if (k == currentCompare.length - 2)
@@ -172,16 +184,17 @@ public class CommonElements
         }
 
         arrayLength = queryCollection.length;
-        return processArrayListDuplicates(commonElementsList);
+        return processArrayListDuplicates(queryCollection);
 
     }
 
-    public Comparable[] processArrayListDuplicates(ArrayList<Comparable> arrayList)
+    public Comparable[] processArrayListDuplicates(Comparable[] collection)
     {
         int count = 1;
+        ArrayList<Comparable> collectionArray = new ArrayList<>(Arrays.asList(collection));
         ArrayList<Comparable> returnList = new ArrayList<>();
 
-        for (Comparable c : arrayList)
+        for (Comparable c : collectionArray)
         {
             if (count % 2 == 1)
             {
@@ -193,12 +206,13 @@ public class CommonElements
 
                 if (duplicateCount > 1)
                 {
-                    for (int i = 0; i < duplicateCount; i++)
+                    for (int i = 0; i < duplicateCount - 1; i++)
                     {
                         returnList.add(returnList.get(returnList.size() - 1));
                     }
                 }
             }
+            count++;
         }
 
         return returnList.toArray(new Comparable[returnList.size()]);
