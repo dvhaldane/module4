@@ -18,17 +18,34 @@ public class CommonElements
 
     public Comparable[] findCommonElements(Comparable[][] collections)
     {
+        //queryCollection = commonElementsList.toArray(new Comparable[commonElementsList.size()]);
         ArrayList<Comparable> commonElementsList = new ArrayList<>();
+        ArrayList<Comparable[]> nonNullArrays = new ArrayList<>();
 
-        Comparable[][] tempCollections = collections;
+        // Remove Nulls
+        for (int i = 0; i < collections.length; i++)
+        {
+            if (collections[i].length != 0)
+            {
+                nonNullArrays.add(collections[i]);
+            }
+        }
 
-        ArrayList<Integer> collectionLengths = new ArrayList<Integer>();
+        Comparable[][] tempCollections = nonNullArrays.toArray(new Comparable[nonNullArrays.size()][nonNullArrays.size()]);
+
+        //handle all nulls
+        if (tempCollections.length < 2)
+        {
+            Comparable[] errorArray = {"ERROR","NOT","ENOUGH","ARRAYS","OR","MEMBERS","FOR","COMPARISON"};
+
+            return errorArray;
+        }
 
         Comparable[] temp;
 
-        for (int i = 0; i < collections.length; i++)
+        for (int i = 0; i < tempCollections.length; i++)
         {
-            tempCollections[i] = mergeSort(collections[i]);
+            tempCollections[i] = mergeSort(tempCollections[i]);
 
             //Add up total members for debug
             totalMembers+=tempCollections[i].length;

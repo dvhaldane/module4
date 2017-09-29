@@ -96,7 +96,7 @@ public class test extends CommonElements
 
     }
 
-    @Test
+    @Test // 4 x 5 member arrays N = 20
     public void test7()
     {
         Comparable[] query_Collection = {1,2,3,4,5};
@@ -109,7 +109,7 @@ public class test extends CommonElements
         System.out.println("Comparisons " + getComparisons());
     }
 
-    @Test
+    @Test // 5 x 10 member arrays N = 50
     public void test8()
     {
         Comparable[] query_Collection = {0,1,2,3,4,5,6,7,8,9};
@@ -117,6 +117,48 @@ public class test extends CommonElements
         Comparable[] current_Collection2 = {0,1,2,3,4,5,6,7,8,9};
         Comparable[] current_Collection3 = {0,1,2,3,4,5,6,7,8,9};
         Comparable[] current_Collection4 = {0,1,2,3,4,5,6,7,8,9};
+        Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3, current_Collection4};
+        System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
+        System.out.println("Comparisons " + getComparisons());
+    }
+
+    @Test // 1 x 1 Member Array N = 1
+    public void test9()
+    {
+        Comparable[] query_Collection = {1};
+        Comparable[] current_Collection = {};
+        Comparable[] current_Collection2 = {};
+        Comparable[] current_Collection3 = {};
+        Comparable[] current_Collection4 = {};
+        Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3, current_Collection4};
+        System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
+        System.out.println("Comparisons " + getComparisons());
+    }
+
+    @Test // All Null Arrays N = 0
+    public void test10()
+    {
+        Comparable[] query_Collection = {};
+        Comparable[] current_Collection = {};
+        Comparable[] current_Collection2 = {};
+        Comparable[] current_Collection3 = {};
+        Comparable[] current_Collection4 = {};
+        Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3, current_Collection4};
+        System.out.println(Arrays.toString(findCommonElements(arrays)));
+        System.out.println("Total Members " + totalMembers);
+        System.out.println("Comparisons " + getComparisons());
+    }
+
+    @Test
+    public void test11()
+    {
+        Comparable[] query_Collection = {1};
+        Comparable[] current_Collection = {1};
+        Comparable[] current_Collection2 = {1};
+        Comparable[] current_Collection3 = {};
+        Comparable[] current_Collection4 = {};
         Comparable[][] arrays = {query_Collection, current_Collection, current_Collection2, current_Collection3, current_Collection4};
         System.out.println(Arrays.toString(findCommonElements(arrays)));
         System.out.println("Total Members " + totalMembers);
