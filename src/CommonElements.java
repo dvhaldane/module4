@@ -36,7 +36,7 @@ public class CommonElements
         //handle all nulls
         if (tempCollections.length < 2)
         {
-            Comparable[] errorArray = {"ERROR","NOT","ENOUGH","ARRAYS","OR","MEMBERS","FOR","COMPARISON"};
+            Comparable[] errorArray = {"ERROR","NOT","ENOUGH","ARRAYS","FOR","COMPARISON"};
 
             return errorArray;
         }
